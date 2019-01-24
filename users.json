@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5c49f54487ea61979dd93c8a"},"name":"joao","language":"python","color":"black","age":30}
+{"_id":{"$oid":"5c49f66887ea61979dd93ccb"},"name":"gabriel","language":"excel","color":"blue","age":24}
+{"_id":{"$oid":"5c49faca8af7b7333967acf4"},"name":"matheus","language":"english","color":"white","age":23}
+{"_id":{"$oid":"5c4a0c288af7b73dc62ca6f0"},"name":"victor","language":"portuguese","color":"red","age":"27"}
+{"_id":{"$oid":"5c4a10318af7b7410a89a7b9"},"name":"robson","language":"go","color":"pink","age":"45"}
