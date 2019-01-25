@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template, url_for
 from flask_pymongo import PyMongo
 
 
@@ -11,8 +11,26 @@ app.config["MONGO_URI"] = 'mongodb://localhost:27017/straint'
 
 mongo = PyMongo(app)
 
+##################################  TEMPLATES  ##################################
 
-@app.route('/users', methods=['GET'])
+@app.route('/')
+def home():
+	return render_template('home.jinja2')
+
+@app.route('/users')
+def users():
+	return render_template('users.jinja2')
+
+@app.route('/login')
+def auth():
+	return render_template('auth.jinja2')
+
+
+
+##################################  API  ##################################
+
+
+@app.route('/users.json', methods=['GET'])
 def get_all_users():
 	users = mongo.db.users
 
@@ -22,7 +40,7 @@ def get_all_users():
 		output.append({'name' : user['name'], 'language' : user['language'], 'color' : user['color'], 'age' : user['age']})
 	return jsonify({ 'result' : output})
 
-@app.route('/users/<name>', methods=['GET'])
+@app.route('/users/<name>.json', methods=['GET'])
 def get_one_user(name):
 	users = mongo.db.users
 
