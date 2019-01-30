@@ -8,6 +8,7 @@ app = Flask(__name__)
 ##############################  TEMPLATES  ################################
 
 @app.route('/')
+@app.route('/home')
 def home():
 	return render_template('home.jinja2')
 
@@ -15,7 +16,7 @@ def home():
 @app.route('/users')
 def users():
 	output = get_users()
-	return render_template('users.jinja2', users=output)
+	return render_template('users.jinja2', users=output, title='Users')
 
 
 @app.route('/add_user', methods=['POST'])
